@@ -474,7 +474,7 @@
 					/Library/Frameworks/SDL2.framework/Headers,
 				);
 				HEADER_SEARCH_PATHS_QUOTED = "\"$(SRCROOT)/Frameworks/FreeType.framework/Headers\"";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SDL2_ttf;
 				SDKROOT = macosx;
@@ -499,7 +499,7 @@
 					/Library/Frameworks/SDL2.framework/Headers,
 				);
 				HEADER_SEARCH_PATHS_QUOTED = "\"$(SRCROOT)/Frameworks/FreeType.framework/Headers\"";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = SDL2_ttf;
 				SDKROOT = macosx;
 				SEPARATE_STRIP = YES;
