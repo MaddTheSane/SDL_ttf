@@ -1,0 +1,6 @@
+framework module SDL2_ttf {
+	umbrella header "SDL_ttf.h"
+	export *
+	module * { export * }
+}
+

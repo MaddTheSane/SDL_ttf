@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		1014BAEA010A4B677F000001 /* SDL_ttf.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SDL_ttf.h; path = ../SDL_ttf.h; sourceTree = SOURCE_ROOT; };
+		551B0F2221486F5700895306 /* SDL2_ttf.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = SDL2_ttf.modulemap; sourceTree = "<group>"; };
 		AA9EE79814B2C589008773C0 /* FreeType.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreeType.framework; path = Frameworks/FreeType.framework; sourceTree = "<group>"; };
 		BE48FD6607AFA17000BB41DA /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
 		BE48FD6707AFA17000BB41DA /* SDL2_ttf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDL2_ttf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +105,7 @@
 			);
 			name = SDL_ttfFramework;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
@@ -151,6 +153,7 @@
 			children = (
 				F59C710300D5CB5801000001 /* ReadMe.txt */,
 				F59C710400D5CB5801000001 /* Welcome.txt */,
+				551B0F2221486F5700895306 /* SDL2_ttf.modulemap */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				INFOPLIST_FILE = "Info-Framework.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
+				MODULEMAP_FILE = "pkg-support/resources/SDL2_ttf.modulemap";
 				OTHER_CFLAGS = "";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -385,6 +389,7 @@
 				INFOPLIST_FILE = "Info-Framework.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
+				MODULEMAP_FILE = "pkg-support/resources/SDL2_ttf.modulemap";
 				OTHER_CFLAGS = "";
 				WRAPPER_EXTENSION = framework;
 			};

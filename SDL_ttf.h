@@ -31,8 +31,16 @@
 #ifndef SDL_TTF_H_
 #define SDL_TTF_H_
 
+#ifndef __has_feature
+#  define __has_feature(X) 0
+#endif
+#if __has_feature(modules)
+#include <SDL2/SDL.h>
+#include <SDL2/begin_code.h>
+#else
 #include "SDL.h"
 #include "begin_code.h"
+#endif
 
 /* Set up for C function definitions, even when using C++ */
 #ifdef __cplusplus
@@ -110,23 +118,27 @@ extern DECLSPEC TTF_Font * SDLCALL TTF_OpenFontRW(SDL_RWops *src, int freesrc, i
 extern DECLSPEC TTF_Font * SDLCALL TTF_OpenFontIndexRW(SDL_RWops *src, int freesrc, int ptsize, long index);
 
 /* Set and retrieve the font style */
-#define TTF_STYLE_NORMAL        0x00
-#define TTF_STYLE_BOLD          0x01
-#define TTF_STYLE_ITALIC        0x02
-#define TTF_STYLE_UNDERLINE     0x04
-#define TTF_STYLE_STRIKETHROUGH 0x08
-extern DECLSPEC int SDLCALL TTF_GetFontStyle(const TTF_Font *font);
-extern DECLSPEC void SDLCALL TTF_SetFontStyle(TTF_Font *font, int style);
-extern DECLSPEC int SDLCALL TTF_GetFontOutline(const TTF_Font *font);
-extern DECLSPEC void SDLCALL TTF_SetFontOutline(TTF_Font *font, int outline);
+typedef SDL_OPTIONS(int, TTF_Style) {
+    TTF_STYLE_NORMAL        = 0x00,
+    TTF_STYLE_BOLD          = 0x01,
+    TTF_STYLE_ITALIC        = 0x02,
+    TTF_STYLE_UNDERLINE     = 0x04,
+    TTF_STYLE_STRIKETHROUGH = 0x08
+};
+extern DECLSPEC TTF_Style SDLCALL TTF_GetFontStyle(const TTF_Font *font);
+extern DECLSPEC void SDLCALL TTF_SetFontStyle(TTF_Font *font, TTF_Style style);
+extern DECLSPEC TTF_Style SDLCALL TTF_GetFontOutline(const TTF_Font *font);
+extern DECLSPEC void SDLCALL TTF_SetFontOutline(TTF_Font *font, TTF_Style outline);
 
 /* Set and retrieve FreeType hinter settings */
-#define TTF_HINTING_NORMAL    0
-#define TTF_HINTING_LIGHT     1
-#define TTF_HINTING_MONO      2
-#define TTF_HINTING_NONE      3
-extern DECLSPEC int SDLCALL TTF_GetFontHinting(const TTF_Font *font);
-extern DECLSPEC void SDLCALL TTF_SetFontHinting(TTF_Font *font, int hinting);
+typedef SDL_ENUM(int, TTF_Hinting) {
+    TTF_HINTING_NORMAL    = 0,
+    TTF_HINTING_LIGHT     = 1,
+    TTF_HINTING_MONO      = 2,
+    TTF_HINTING_NONE      = 3
+};
+extern DECLSPEC TTF_Hinting SDLCALL TTF_GetFontHinting(const TTF_Font *font);
+extern DECLSPEC void SDLCALL TTF_SetFontHinting(TTF_Font *font, TTF_Hinting hinting);
 
 /* Get the total height of the font - usually equal to point size */
 extern DECLSPEC int SDLCALL TTF_FontHeight(const TTF_Font *font);
@@ -287,7 +299,11 @@ extern DECLSPEC int TTF_GetFontKerningSizeGlyphs(TTF_Font *font, Uint16 previous
 #ifdef __cplusplus
 }
 #endif
+#if __has_feature(modules)
+#include <SDL2/close_code.h>
+#else
 #include "close_code.h"
+#endif
 
 #endif /* SDL_TTF_H_ */
 
